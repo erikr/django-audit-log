@@ -171,7 +171,7 @@ class AuditLog(object):
                 elif field.rel: 
                     try:
                         if field.rel.get_accessor_name():
-                            field.rel.related_name = '_auditlog_%s' % field.rel.get_accessor_name()
+                            field.rel.related_name = '_auditlog_%s_%s' % (model._meta.model_name, field.rel.get_accessor_name())
                     except:
                         pass
   
